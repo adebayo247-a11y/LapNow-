@@ -1,0 +1,35 @@
+{
+  "name": "lapnow-",
+  "version": "1.0.0",
+  "description": "LapNow is a simple mobile app that connects buyers of laptops to those that want to sell laptops",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adebayo247-a11y/LapNow-.git"
+  },
+  "keywords": [],
+  "author": "ADEBAYO OLUWATOSIN",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/adebayo247-a11y/LapNow-/issues"
+  },
+  "homepage": "https://github.com/adebayo247-a11y/LapNow-#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^2.11.0",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.10.1",
+    "multer": "^2.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
