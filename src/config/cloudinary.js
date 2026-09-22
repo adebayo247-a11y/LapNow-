@@ -1,5 +1,6 @@
-const cloudinary = require("cloudinary").v2;
-const dotenv = require("dotenv");
+import { v2 as cloudinary } from 'cloudinary';
+import multer from 'multer';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -9,4 +10,10 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-module.exports = cloudinary;
+// Memory storage to stream files straight to Cloudinary
+export const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 5 * 1024 * 1024 },
+});
+
+export { cloudinary };
