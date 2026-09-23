@@ -26,5 +26,5 @@ Securing sensitive application data requires choosing the right cryptographic to
  **Primary Goal** | Data confidentiality | Data integrity & verification | Defeating rainbow tables |
  **Best Used For** | Credit cards, chat messages, HTTPS | File checksums, digital signatures | Password storage (e.g., via `bcrypt`)
  
- # https://docs.google.com/forms/d/e/1FAIpQLScUYyUozbXBCNVb58BSsXd17NUrsukQ3rERZYesAjUvKOlJSQ/viewform
+ # https://docs.google.com/forms/u/0/d/e/1FAIpQLScUYyUozbXBCNVb58BSsXd17NUrsukQ3rERZYesAjUvKOlJSQ/formResponse
 
