@@ -1,6 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-
 import authRoutes from './routes/auth.routes.js';
 import laptopRoutes from './routes/laptop.routes.js';
 import userRoutes from './routes/user.routes.js';
@@ -16,9 +15,7 @@ app.use('/api/laptops', laptopRoutes);
 app.use('/api/users', userRoutes);
 
 app.use((req, res) => {
-    res.status(404).json({
-        message: 'routes not found'
-    });
+  res.status(404).json({ message: 'Route not found' });
 });
 
 export default app;

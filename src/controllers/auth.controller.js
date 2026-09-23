@@ -1,6 +1,5 @@
 import jwt from 'jsonwebtoken';
-import User from '../models/User.js';
-
+import User from '../models/user.js';
 
 const createToken = (id) => {
   const secret = process.env.JWT_SECRET || 'super_secret_fallback_key';
@@ -14,6 +13,9 @@ export const register = async (req, res) => {
 
     if (!firstName || !lastName || !phoneNumber || !email || !password) {
       return res.status(400).json({ message: 'Please fill all required fields' });
+    }
+    if (phoneNumber.length !== 11) {
+      return res.status(400).json({ message: 'Phone number should be 11 digits!' });
     }
 
     const userExists = await User.findOne({ email });

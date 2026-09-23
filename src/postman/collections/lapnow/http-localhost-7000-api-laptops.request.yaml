@@ -1,0 +1,10 @@
+$kind: http-request
+name: http://localhost:7000/api/laptops
+description: to get all laptops uploaded on the app.
+url: http://localhost:7000/api/laptops
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_0vfx}}"
+order: 3298254822933689

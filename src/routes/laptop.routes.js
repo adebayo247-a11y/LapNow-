@@ -6,6 +6,8 @@ import { upload } from '../config/cloudinary.js';
 const router = express.Router();
 
 router.get('/', protect, getAllLaptops);
-router.post('/', protect, adminOnly, upload.single('picture'), createLaptop);
+
+// upload.array('pictures', 5) accepts up to 5 image files under the field name "pictures"
+router.post('/', protect, adminOnly, upload.array('pictures', 5), createLaptop);
 
 export default router;

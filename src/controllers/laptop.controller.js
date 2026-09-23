@@ -1,4 +1,4 @@
-import Laptop from '../models/Laptop.js';
+import Laptop from '../models/laptop.js';
 import { cloudinary } from '../config/cloudinary.js';
 
 // GET /api/laptops
@@ -15,31 +15,38 @@ export const getAllLaptops = async (req, res) => {
   }
 };
 
-// POST /api/laptops (Admin only)
+// POST /api/laptops (Admin only: handles multiple images)
 export const createLaptop = async (req, res) => {
   try {
     const { model, amount } = req.body;
 
-    if (!model || !amount || !req.file) {
-        return res.status(400).json({
-            message: 'Model, amount, and picture are required'
-        });
+    if (!model || !amount) {
+      return res.status(400).json({ message: 'Model and amount are required' });
     }
 
-    const base64Image = `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`;
+    if (!req.files || req.files.length === 0) {
+      return res.status(400).json({ message: 'Please upload at least one picture' });
+    }
 
-    const uploadResult = await cloudinary.uploader.upload(base64Image, {
-      folder: 'lapnow_laptops',
+    // Upload each image buffer concurrently to Cloudinary
+    const uploadPromises = req.files.map((file) => {
+      const base64Image = `data:${file.mimetype};base64,${file.buffer.toString('base64')}`;
+      return cloudinary.uploader.upload(base64Image, {
+        folder: 'lapnow_laptops',
+      });
     });
+
+    const uploadResults = await Promise.all(uploadPromises);
+    const imageUrls = uploadResults.map((result) => result.secure_url);
 
     const laptop = await Laptop.create({
       model,
       amount,
-      picture: uploadResult.secure_url,
+      pictures: imageUrls,
     });
 
     return res.status(201).json({
-      message: 'Laptop listed successfully',
+      message: 'Laptop listed successfully with multiple images',
       data: laptop,
     });
   } catch (error) {

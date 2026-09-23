@@ -4,7 +4,7 @@ const laptopSchema = new mongoose.Schema(
   {
     model: { type: String, required: true },
     amount: { type: Number, required: true },
-    picture: { type: String, required: true },
+    pictures: [{ type: String, required: true }], // Array of Cloudinary URLs
   },
   { timestamps: true }
 );
