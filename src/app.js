@@ -14,6 +14,13 @@ app.use('/api/auth', authRoutes);
 app.use('/api/laptops', laptopRoutes);
 app.use('/api/users', userRoutes);
 
+app.get('/', (__, res) => {
+  res.status(200).json({
+    message: 'Welcome to LapNow API',
+    status: 'Server is running smoothly'
+  });
+});
+
 app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });

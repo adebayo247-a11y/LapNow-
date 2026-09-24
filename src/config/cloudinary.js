@@ -2,10 +2,10 @@ import 'dotenv/config';
 import { v2 as cloudinary } from 'cloudinary';
 import multer from 'multer';
 
-console.log("CLOUDINARY DEBUG:");
-console.log("Cloud Name:", process.env.CLOUDINARY_CLOUD_NAME);
-console.log("API Key:", process.env.CLOUDINARY_API_KEY);
-console.log("API Secret:", process.env.CLOUDINARY_API_SECRET ? "EXISTS" : "MISSING");
+// console.log("CLOUDINARY DEBUG:");
+// console.log("Cloud Name:", process.env.CLOUDINARY_CLOUD_NAME);
+// console.log("API Key:", process.env.CLOUDINARY_API_KEY);
+// console.log("API Secret:", process.env.CLOUDINARY_API_SECRET ? "EXISTS" : "MISSING");
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

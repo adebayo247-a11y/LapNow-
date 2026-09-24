@@ -22,7 +22,7 @@ const createAdmin = async () => {
     await User.create({
       firstName: process.env.ADMIN_FIRSTNAME || 'Abayomi',
       lastName: process.env.ADMIN_LASTNAME || 'Adenle',
-      phoneNumber: process.env.ADMIN_PHONE || '08099999999',
+      phoneNumber: process.env.ADMIN_PHONE || '08022939199',
       email: adminEmail,
       password: adminPassword,
       role: 'admin',
@@ -30,7 +30,7 @@ const createAdmin = async () => {
 
     console.log('Admin account created successfully');
   } catch (error) {
-    console.error('Error in seedAdmin:', error.message);
+    console.error('Error creating admin account:', error.message);
   }
 };
 

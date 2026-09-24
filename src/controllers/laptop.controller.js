@@ -28,7 +28,7 @@ export const createLaptop = async (req, res) => {
       return res.status(400).json({ message: 'Please upload at least one picture' });
     }
 
-    // Upload each image buffer concurrently to Cloudinary
+    
     const uploadPromises = req.files.map((file) => {
       const base64Image = `data:${file.mimetype};base64,${file.buffer.toString('base64')}`;
       return cloudinary.uploader.upload(base64Image, {
