@@ -24,5 +24,7 @@ Securing sensitive application data requires choosing the right cryptographic to
  **Direction** | Two-way (Reversible) | One-way (Irreversible) | Modifier (Appended to input) |
  **Key / Secret** | Requires an encryption key | No key required | Uses random unique bytes |
  **Primary Goal** | Data confidentiality | Data integrity & verification | Defeating rainbow tables |
- **Best Used For** | Credit cards, chat messages, HTTPS | File checksums, digital signatures | Password storage (e.g., via `bcrypt`) |
+ **Best Used For** | Credit cards, chat messages, HTTPS | File checksums, digital signatures | Password storage (e.g., via `bcrypt`)
+ 
+ # https://docs.google.com/forms/u/0/d/e/1FAIpQLScUYyUozbXBCNVb58BSsXd17NUrsukQ3rERZYesAjUvKOlJSQ/formResponse
 
